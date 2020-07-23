@@ -14,8 +14,15 @@ function Users( { details } ) {
                 <li>User ID: { details.id}</li>
                 <li>Email: { details.email}</li>
                 <li>Avatar: <span> <a href={details.avatar}>Link</a></span>{ details.terms}</li>
-                <li>Accepted Terms: { details.terms} </li>
-            </ul>
+                <li> Password: {details.password} </li>
+                {
+                !!details.terms && !!details.terms.length &&
+                    <div>
+                    Accepted Terms and Condiitons
+                    
+                    </div>
+                }
+                </ul>
         </div>
         
     )

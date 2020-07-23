@@ -91,8 +91,9 @@ const inputChange = (name, value) => {
 const checkboxChange = (name, isChecked) => {
   setFormValues({
       ...formValues,
-      terms: {
-        [name]: isChecked 
+      terms : {
+        ...formValues.terms,
+        [name]: isChecked, // not an array
       }
     })
 }
@@ -103,7 +104,7 @@ const submit = () => {
     last_name: formValues.last_name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
-    tOs: Object.keys(formValues.terms),
+    terms: Object.keys(formValues.terms).filter(t => formValues.terms[t]),
   }
   postNewUser(newUser) 
 }
